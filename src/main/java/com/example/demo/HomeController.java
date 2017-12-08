@@ -43,4 +43,9 @@ public class HomeController {
         tweetRepository.delete(id);
         return "redirect:/";
     }
+
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
+    }
 }

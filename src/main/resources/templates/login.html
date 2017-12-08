@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://
+www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-
+springsecurity3">
+<head>
+    <meta charset="UTF-8" />
+    <title>Login To Your Account!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
+
+        body {
+            background: -webkit-linear-gradient(left, #4cb7ff, #e542b4);
+            background: linear-gradient(to right, #4cb7ff, #e542b4);
+            color: white;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            font-family: Raleway;
+            letter-spacing: 1px;
+            padding-top: 5%;
+        }
+        button a {
+            color: white;
+
+        }
+        .card-form {
+            width: 500px;
+            border-radius: 10px;
+            background: white;
+            color:black;
+            box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
+        .form-title {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80px;
+            font-size: 20px;
+            font-weight: bold;
+            background: #ff93f7;
+            border-radius: 10px 10px 0 0;
+            color:white
+        }
+        .form-body{
+            padding: 10px;}
+
+        .row{
+            display: flex;
+            justify-content: space-around;
+            padding: 10px;}
+
+        input{
+            appearance: none;
+            width: 100%;
+            margin: 0 15px;
+            height: 35px;
+            padding: 5px 15px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            background: #e8ebed;
+            color: #576366;
+            font-size: 14px;
+        }
+        .rule{
+            height: 2px;
+            background: #e8ebed;
+            margin: 0px 35px 35px;
+        }
+    </style>
+</head>
+<body>
+<div class="container text-center">
+    <h1>Login To Your Account!</h1>
+    <button type="button" class="btn btn-primary"><a href="/">All Tweets</a></button>
+    <br /><br />
+</div>
+
+<div class="container text-center card-form">
+    <div class="form-title">Login To See Goodies :3</div>
+    <div class="form-body">
+        <form th:action="@{/login}" method="post">
+
+        <div class="row form-group"><input placeholder="User Name" type="text" name="username"/>
+       </div>
+
+        <div class="row form-group"><input placeholder="Password" type="password"
+                                      name="password"/></div>
+        <div class="form-group">
+          <button value="Sign In" class="btn btn-primary">Sign In</button>
+        </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
