@@ -2,24 +2,111 @@
 <html lang="en" xmlns:th="www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
-    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <title>Submit A New Tweet</title>
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Raleway:400,700);
+
+    body {
+        background: -webkit-linear-gradient(left, #BB1881, #F88B50);
+        background: linear-gradient(to right, #BB1881, #F88B50);
+        color: white;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        font-family: Raleway;
+        letter-spacing: 1px;
+        padding-top: 5%;
+    }
+    button a {
+        color: white;
+
+    }
+    .card-form {
+        width: 500px;
+        border-radius: 10px;
+        background: white;
+        color:black;
+        box-shadow: 0 27px 55px 0 rgba(0, 0, 0, 0.3), 0 17px 17px 0 rgba(0, 0, 0, 0.15);
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+    }
+    .form-title {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 80px;
+        font-size: 20px;
+        font-weight: bold;
+        background: #27ae60;
+        border-radius: 10px 10px 0 0;
+        color:white
+    }
+    .form-body{
+        padding: 10px;}
+
+    .row{
+        display: flex;
+        justify-content: space-around;
+        padding: 10px;}
+
+    input[type="text"]{
+        appearance: none;
+        width: 100%;
+        margin: 0 15px;
+        height: 35px;
+        padding: 5px 15px;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        background: #e8ebed;
+        color: #576366;
+        font-size: 14px;
+    }
+    .rule{
+        height: 2px;
+        background: #e8ebed;
+        margin: 0px 35px 35px;
+    }
+</style>
 </head>
 <body>
-<form action="#" th:action="@{/process}"
-      th:object="${tweet}"
-      method="post">
-    <input type="hidden" th:field="*{id}" />
-    Tweet :<input type="text" th:field="*{content}" />
-    <span th:if="${#fields.hasErrors('content')}"
-          th:errors="*{content}"></span><br />
-    Date :<input type="text" th:field="*{date}" />
-    <span th:if="${#fields.hasErrors('date')}"
-          th:errors="*{date}"></span><br />
-    Author :<input type="text" th:field="*{sentby}" />
-    <span th:if="${#fields.hasErrors('sentby')}"
-          th:errors="*{sentby}"></span><br />
-    <br />
-    <input type="submit" value="Submit" />
-</form>
+<div class="container text-center">
+<div>
+        <h1>Post A New Tweet!</h1>
+        <button type="button" class="btn btn-success"><a href="/">All Tweets</a></button>
+    <br /><br />
+</div>
+</div>
+
+<div class="container text-center card-form">
+
+    <div class="form-title">What's On Your Mind?</div>
+
+    <form action="#" th:action="@{/process}" th:object="${tweet}" method="post">
+        <div class="form-body" style="padding: 20px;">
+        <input type="hidden" th:field="*{id}" />
+        <div class="row form-group">
+            <input placeholder="Content" type="text" th:field="*{content}" />
+            <span th:if="${#fields.hasErrors('content')}"
+              th:errors="*{content}"></span>
+        </div>
+        <Div class="row form-group">
+            <input placeholder="Date" type="text" th:field="*{date}" />
+            <span th:if="${#fields.hasErrors('date')}"
+              th:errors="*{date}"></span>
+        </Div>
+        <div class="row form-group">
+            <input placeholder="Author" type="text" th:field="*{sentby}" />
+            <span th:if="${#fields.hasErrors('sentby')}"
+              th:errors="*{sentby}"></span><br />
+        </div>
+        <div class="rule"></div>
+        <div class="form-footer">
+        <button type="Submit" class="btn btn-success">Submit</button>
+        </div>
+    </form>
+</div>
 </body>
 </html>
